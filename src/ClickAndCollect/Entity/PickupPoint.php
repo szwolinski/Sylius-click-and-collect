@@ -102,6 +102,7 @@ class PickupPoint implements ResourceInterface
         $this->enabled = $enabled;
     }
 
+    /** @return Collection<int, ShippingMethodInterface> */
     public function getShippingMethods(): Collection
     {
         return $this->shippingMethods;

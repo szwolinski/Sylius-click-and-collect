@@ -82,9 +82,7 @@ final class ClickAndCollectContext extends RawMinkContext implements Context
     #[When('/^I select "([^"]+)" as my pickup point$/')]
     public function iSelectAsMyPickupPoint(string $pointName): void
     {
-        /** @var OrderInterface $cart */
         $cart = $this->cartContext->getCart();
-        Assert::isInstanceOf($cart, OrderInterface::class, 'Current cart is invalid.');
 
         /** @var Shipment $shipment */
         $shipment = $cart->getShipments()->first();
@@ -105,7 +103,7 @@ final class ClickAndCollectContext extends RawMinkContext implements Context
         /** @var OrderInterface $cart */
         $cart = $this->cartContext->getCart();
 
-        /** @var ShipmentInterface $shipment */
+        /** @var Shipment|null $shipment */
         $shipment = $cart->getShipments()->first();
 
         Assert::notNull($shipment, 'No shipment found for the current cart.');

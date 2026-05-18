@@ -21,16 +21,21 @@ final class ClickAndCollectCalculator implements CalculatorInterface
     private const string TYPE = 'click_and_collect';
 
     /**
-     * @param array<string, mixed> $configuration
+     * @param array<string, string|int> $configuration
      */
     public function calculate(ShipmentInterface $subject, array $configuration): int
     {
         Assert::isInstanceOf($subject, \Sylius\Component\Core\Model\ShipmentInterface::class);
 
-        /** @var ShipmentInterface $subject */
+        /** @var \Sylius\Component\Core\Model\ShipmentInterface $subject */
         /** @var OrderInterface $order */
         $order = $subject->getOrder();
+
+        Assert::notNull($order->getChannel(), 'Order must have a channel assigned.');
+
         $channelCode = $order->getChannel()->getCode();
+
+        Assert::notNull($channelCode);
 
         if (!isset($configuration[$channelCode])) {
             throw new MissingChannelConfigurationException(

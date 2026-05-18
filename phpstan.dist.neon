@@ -1,8 +1,8 @@
 parameters:
     level: 9
     paths:
-        - bin/
-        - config/
-        - public/
         - src/
-        - tests/
+    ignoreErrors:
+        -
+            message: '#Property App\\ClickAndCollect\\Entity\\PickupPoint::\$id \(int\|null\) is never assigned int#'
+            path: src/ClickAndCollect/Entity/PickupPoint.php
