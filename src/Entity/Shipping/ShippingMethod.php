@@ -15,6 +15,7 @@ use Sylius\Component\Shipping\Model\ShippingMethodTranslationInterface;
 #[ORM\Table(name: 'sylius_shipping_method')]
 class ShippingMethod extends BaseShippingMethod
 {
+    /** @var Collection<int, PickupPoint> */
     #[ORM\ManyToMany(targetEntity: PickupPoint::class, mappedBy: 'shippingMethods')]
     protected Collection $pickupPoints;
 

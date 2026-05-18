@@ -25,7 +25,7 @@ final class ShipmentTestFactory
                 parent::__construct();
             }
 
-            public function getChannel(): ?ChannelInterface
+            public function getChannel(): ChannelInterface
             {
                 return $this->testChannel;
             }

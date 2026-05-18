@@ -47,6 +47,7 @@ class PickupPoint implements ResourceInterface
     #[ORM\Column(type: 'boolean')]
     private bool $enabled = true;
 
+    /** @var Collection<int, ShippingMethodInterface> */
     #[ORM\ManyToMany(targetEntity: ShippingMethodInterface::class)]
     #[ORM\JoinTable(name: 'app_pickup_point_shipping_method')]
     private Collection $shippingMethods;

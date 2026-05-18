@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Behat\Context\Setup;
 
 use App\ClickAndCollect\Entity\PickupPoint;
+use App\Entity\Shipping\Shipment;
 use Behat\Behat\Context\Context;
 use Behat\Step\Given;
 use Behat\Step\Then;
@@ -23,6 +24,9 @@ use Behat\MinkExtension\Context\RawMinkContext;
 
 final class ClickAndCollectContext extends RawMinkContext implements Context
 {
+    /**
+     * @param ShippingMethodRepositoryInterface<ShippingMethodInterface> $shippingMethodRepository
+     */
     public function __construct(
         private readonly SharedStorageInterface $sharedStorage,
         private readonly ShippingMethodRepositoryInterface $shippingMethodRepository,
@@ -82,7 +86,7 @@ final class ClickAndCollectContext extends RawMinkContext implements Context
         $cart = $this->cartContext->getCart();
         Assert::isInstanceOf($cart, OrderInterface::class, 'Current cart is invalid.');
 
-        /** @var ShipmentInterface $shipment */
+        /** @var Shipment $shipment */
         $shipment = $cart->getShipments()->first();
         Assert::notNull($shipment, 'No shipment found for the current cart.');
 
