@@ -1,0 +1,10 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_shop.checkout.select_shipping.content.form.shipments.shipment.choice.details':
+            click_and_collect_pickup_point:
+                template: 'checkout/select_shipping/pickup_point_field.html.twig'
+                priority: 50
+        'sylius_admin.shipment.show.content.page_body':
+            admin_shipping_pickup_point:
+                template: 'admin/shipment/show/pickup_point.html.twig'
+                priority: -100

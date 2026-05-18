@@ -1,0 +1,25 @@
+default:
+    suites:
+        ui_shipping:
+            contexts:
+                - sylius.behat.context.transform.lexical
+                - sylius.behat.context.transform.shipping_method
+                - sylius.behat.context.transform.product    
+                    
+                - sylius.behat.context.setup.checkout.address
+                - sylius.behat.context.hook.session
+                - sylius.behat.context.hook.doctrine_orm
+                - sylius.behat.context.setup.channel
+                - sylius.behat.context.setup.shipping
+                - sylius.behat.context.setup.product
+                - sylius.behat.context.setup.shop_security
+                - sylius.behat.context.setup.order
+                - sylius.behat.context.setup.cart
+                - sylius.behat.context.ui.shop.cart
+                - sylius.behat.context.ui.shop.checkout.shipping
+                - sylius.behat.context.ui.shop.checkout.payment
+                - sylius.behat.context.ui.shop.checkout
+                - sylius.behat.context.ui.shop.checkout.complete
+                - App\Tests\Behat\Context\Setup\ClickAndCollectContext
+            filters:
+                tags: "@shipping&&@ui"

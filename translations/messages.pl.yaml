@@ -1,0 +1,16 @@
+sylius:
+    form:
+        shipping_calculator:
+            click_and_collect:
+                label: 'Odbiór Osobisty'
+                handling_fee: 'Opłata manipulacyjna'
+                free_above: 'Darmowa powyżej'
+
+app:
+    ui:
+        pickup_point: "Punkt odbioru"
+        pickup_points: "Punkty odbioru"
+        select_pickup_point: 'Wybierz punkt odbioru'
+        choose_from_list: 'Wybierz z listy'
+        delivery_location: 'Miejsce dostawy'
+        pickup_point_delivery_info: 'Zamówienie zostanie odebrane w punkcie:'

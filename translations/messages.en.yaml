@@ -1,0 +1,16 @@
+sylius:
+    form:
+        shipping_calculator:
+            click_and_collect:
+                label: 'Click & Collect'
+                handling_fee: 'Handling fee'
+                free_above: 'Free above'
+                
+app:
+    ui:
+        pickup_point: "Pickup point"
+        pickup_points: "Pickup points"
+        select_pickup_point: 'Select pickup point'
+        choose_from_list: 'Select from list'
+        delivery_location: 'Delivery location'
+        pickup_point_delivery_info: 'The order will be picked up at:'

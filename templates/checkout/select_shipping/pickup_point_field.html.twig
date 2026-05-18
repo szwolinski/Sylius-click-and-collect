@@ -1,0 +1,46 @@
+{% set methodRadioForm = hookable_metadata.context.choice_form ?? null %}
+
+{% if methodRadioForm is not null %}
+    {% set shipmentForm = methodRadioForm.parent.parent %}
+    {% set radioValue = methodRadioForm.vars.value %}
+
+    {% set methodEntity = null %}
+    {% for choice in methodRadioForm.parent.vars.choices %}
+        {% if choice.value == radioValue %}
+            {% set methodEntity = choice.data %}
+        {% endif %}
+    {% endfor %}
+
+    {% if methodEntity and methodEntity.pickupPoints is defined and methodEntity.pickupPoints|length > 0 %}
+
+        <div class="field pickup-point-wrapper" id="pickup-wrapper-{{ radioValue }}" style="display: none; padding-top: 10px; padding-left: 28px;">
+            <p><label style="color: #777; font-weight: normal; margin-bottom: 5px;">{{ 'app.ui.select_pickup_point'|trans }}</label></p>
+
+            <select name="{{ shipmentForm.pickupPoint.vars.full_name }}" class="form-select" disabled required>
+                {% for point in methodEntity.pickupPoints %}
+                    {% set isSelected = shipmentForm.pickupPoint.vars.data and shipmentForm.pickupPoint.vars.data.id == point.id %}
+                    <option value="{{ point.id }}" {{ isSelected ? 'selected' : '' }}>
+                        {{ point.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const wrapper = document.getElementById('pickup-wrapper-{{ radioValue }}');
+                const select = wrapper.querySelector('select');
+                const groupRadios = document.querySelectorAll('input[name="{{ methodRadioForm.vars.full_name }}"]');
+
+                const toggle = () => {
+                    const isChecked = document.getElementById('{{ methodRadioForm.vars.id }}').checked;
+                    wrapper.style.display = isChecked ? 'block' : 'none';
+                    select.disabled = !isChecked;
+                };
+
+                toggle();
+                groupRadios.forEach(radio => radio.addEventListener('change', toggle));
+            });
+        </script>
+    {% endif %}
+{% endif %}

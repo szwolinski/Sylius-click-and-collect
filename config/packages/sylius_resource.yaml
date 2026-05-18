@@ -1,0 +1,16 @@
+# @see https://stack.sylius.com/resource/index
+sylius_resource:
+    # Override default settings
+    #settings:
+
+    # Configure the mapping for your resources
+    mapping:
+        paths:
+            - '%kernel.project_dir%/src/Entity'
+            - '%kernel.project_dir%/src/ClickAndCollect/Entity'
+
+    # Configure your resources
+    resources:
+        #app.book:
+            #classes:
+                #model: App\Entity\Book
