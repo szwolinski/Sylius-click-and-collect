@@ -23,8 +23,6 @@ To test the ClickAndCollect shipping calculator logic, handling fees, and thresh
 ./vendor/bin/phpunit ./tests/Unit/ClickAndCollect
 ```
 
----
-
 ## Application Flow (Screenshots)
 
 ### 1. Checkout - Shipping Method Selection
@@ -35,11 +33,9 @@ When the customer chooses shipment with pickup points, a dynamic dropdown appear
 Administrators can see the designated delivery location directly under the shipment details in the admin panel.
 > **![img_1.png](img_1.png)**
 
----
 
 ## CRUD & Shipping method configuration (Screenshots)
 
----
 ### 1. Menu modification
 ![img_2.png](img_2.png)
 
