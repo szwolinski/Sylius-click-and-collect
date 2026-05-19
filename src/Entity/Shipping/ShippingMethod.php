@@ -33,6 +33,23 @@ class ShippingMethod extends BaseShippingMethod
         return $this->pickupPoints;
     }
 
+    public function hasPickupPoints(): bool
+    {
+        return !$this->pickupPoints->isEmpty();
+    }
+
+    public function addPickupPoint(PickupPoint $pickupPoint): void
+    {
+        if (!$this->hasPickupPoint($pickupPoint)) {
+            $this->pickupPoints->add($pickupPoint);
+        }
+    }
+
+    public function hasPickupPoint(PickupPoint $pickupPoint): bool
+    {
+        return $this->pickupPoints->contains($pickupPoint);
+    }
+
     protected function createTranslation(): ShippingMethodTranslationInterface
     {
         return new ShippingMethodTranslation();

@@ -8,8 +8,8 @@ sylius:
 
 app:
     ui:
-        pickup_point: "Punkt odbioru"
-        pickup_points: "Punkty odbioru"
+        pickup_point: 'Punkt odbioru'
+        pickup_points: 'Punkty odbioru'
         select_pickup_point: 'Wybierz punkt odbioru'
         choose_from_list: 'Wybierz z listy'
         delivery_location: 'Miejsce dostawy'

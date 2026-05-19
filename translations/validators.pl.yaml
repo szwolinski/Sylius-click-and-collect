@@ -1,0 +1,3 @@
+app:
+    ui:
+        pickup_point_required: 'Punkt odbioru jest wymagany dla tej metody dostawy'
