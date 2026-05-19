@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Unit\Validator;
+namespace App\Tests\Unit\ClickAndCollect\Validator;
 
 use App\ClickAndCollect\Entity\PickupPoint;
 use App\ClickAndCollect\Validator\Constraints\HasPickupPointSelected;
