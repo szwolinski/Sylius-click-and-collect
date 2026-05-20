@@ -65,9 +65,9 @@ Administrators can see the designated delivery location directly under the shipm
 
 ### 2. UI & Templates
 * **Shop Checkout Selection:**
-    * **File:** `templates/bundles/SyliusShopBundle/Checkout/SelectShipping/_pickupPointChoice.html.twig`
+    * * **File:** `templates/checkout/select_shipping/pickup_point_field.html.twig`
     * **Purpose:** Injected into the shipping method form. It uses a lightweight template to display the store selection dropdown only when the shipping method has pickup points.
 
 * **Admin Order View:**
-    * **File:** `templates/bundles/SyliusAdminBundle/Order/Show/_pickupPointInfo.html.twig`
+    * **File:** `templates/admin/shipment/show/pickup_point.html.twig`
     * **Purpose:** Injected into the administration shipping details page. It renders card inside the admin order details page, showing admins exactly where the order should be prepared.
